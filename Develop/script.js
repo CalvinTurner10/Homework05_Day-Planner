@@ -6,16 +6,17 @@ currentDayEl.text(moment().format("MMM Do YY"))
 var output = ''
 timeSlots.forEach((timeSlot, i) => {
 
-    var curnetHour = moment().start0f('hour').format('HH')
+    var currentHour = moment().startOf('hour').format('HH')
     var color = ''
-    if (timeSlot.hour == currentHour){
+    if (timeSlot.hour == currentHour) {
         color = 'present'
     } else if (timeSlot.hour < currentHour) {
         color = 'past'
-    } else{
+    } else {
         color = 'future'
     }
-    output+= `
+
+    output += `
     <div class ='row'>
         <div class = 'col-lg-1 hour time-block'> ${timeSlot.time}</div>
         <textarea id = ${i} class='col-lg-10 ${color}' >${timeSlot.text}</textarea>
@@ -25,8 +26,8 @@ timeSlots.forEach((timeSlot, i) => {
 }
 )
 $('.container').html(output)
-
-$('.row').on('click', 'button', (event)=>{
+//saves new entry in text box
+$('.row').on('click', 'button', (event) => {
     var task = event.currentTarget.parentElement.children[1].value
     var timeID = event.currentTarget.parentElement.children[1].id
     timeSlot[timeID].text = task
