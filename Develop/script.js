@@ -1,5 +1,5 @@
 //Shows current Date
-var currentDay = moment().format('MMM DO, YYYY');
+var currentDay = moment().format('MMM D, YYYY');
 $('#currentDay').text(currentDay);
 //The store button will store it to the local storage
 $('.saveBtn').on('click', function(){
